@@ -1,0 +1,16 @@
+public class test {
+    public static void main(String[] args) {
+        int numTerms = 7; // You can change this to the number of terms you want
+        System.out.println("Fibonacci series:");
+        for (int i = 1; i <= numTerms; i++) {
+            System.out.print(fibo(i) + " ");
+        }
+    }
+
+    static int fibo(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        return fibo(n - 1) + fibo(n - 2);
+    }
+}
