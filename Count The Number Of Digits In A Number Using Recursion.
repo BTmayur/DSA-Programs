@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class CountDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        int digitCount = countDigits(num);
+
+        System.out.println("Number of digits in " + num + " is: " + digitCount);
+    }
+
+    // Function to count the number of digits using recursion
+    static int countDigits(int n) {
+        if (n == 0) {
+            return 0; // Base case: no digits in 0
+        } else {
+            return 1 + countDigits(n / 10); // Recursive case: count digits in the remaining number
+        }
+    }
+}
