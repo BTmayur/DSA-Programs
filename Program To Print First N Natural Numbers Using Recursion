@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the value of N: ");
+        int n = sc.nextInt();
+
+        System.out.println("First " + n + " natural numbers:");
+        printN(n);
+    }
+
+    // Function to print the first N natural numbers using recursion
+    static void printN(int n) {
+        if (n == 0) {
+            return;
+        }
+        printN(n - 1);
+        System.out.println(n);
+    }
+}
