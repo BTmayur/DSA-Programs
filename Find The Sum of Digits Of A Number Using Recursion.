@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        int digitSum = sumOfDigits(num);
+
+        System.out.println("Sum of digits in " + num + " is: " + digitSum);
+    }
+
+    // Function to find the sum of digits using recursion
+    static int sumOfDigits(int n) {
+        if (n == 0) {
+            return 0; // Base case: sum of digits in 0 is 0
+        } else {
+            return n % 10 + sumOfDigits(n / 10); // Recursive case: sum digits in the remaining number
+        }
+    }
+}
