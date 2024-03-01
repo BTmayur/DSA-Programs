@@ -1,0 +1,15 @@
+public class ReverseStringRecursive {
+    public static void main(String[] args) {
+        String inputString = "Hello";
+        String reversedString = reverseString(inputString, "", inputString.length() - 1);
+        System.out.println("Reversed string: " + reversedString);
+    }
+
+    // Function to reverse a string using recursion
+    static String reverseString(String s, String r, int i) {
+        if (i < 0) {
+            return r;
+        }
+        return reverseString(s, r + s.charAt(i), i - 1);
+    }
+}
