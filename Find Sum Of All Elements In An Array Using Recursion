@@ -1,0 +1,15 @@
+public class ArraySumRecursive {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int sum = calculateSum(array, 0);
+        System.out.println("Sum of elements in the array: " + sum);
+    }
+
+    // Recursive function to calculate the sum of elements in an array
+    static int calculateSum(int[] arr, int index) {
+        if (index == arr.length) {
+            return 0; // Base case: reached the end of the array
+        }
+        return arr[index] + calculateSum(arr, index + 1); // Recursive call
+    }
+}
