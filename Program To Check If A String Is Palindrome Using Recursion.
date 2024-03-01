@@ -1,0 +1,21 @@
+public class test {
+    public static void main(String[] args) {
+        String inputString = "level";
+        if (ispalindrome(inputString, 0, inputString.length() - 1)) {
+            System.out.println(inputString + " is a palindrome.");
+        } else {
+            System.out.println(inputString + " is not a palindrome.");
+        }
+    }
+
+    // Function to check if a substring of a string is a palindrome using recursion
+    static boolean ispalindrome(String s, int i, int j) {
+        if (s.charAt(i) != s.charAt(j)) {
+            return false;
+        }
+        if (j <= i) {
+            return true;
+        }
+        return ispalindrome(s, i + 1, j - 1);
+    }
+}
