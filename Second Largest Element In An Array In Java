@@ -1,0 +1,36 @@
+public class SecondLargestElement {
+    public static void main(String[] args) {
+        int[] array = {5, 8, 2, 10, 7, 3, 1};
+
+        int secondLargest = findSecondLargest(array);
+
+        if (secondLargest != Integer.MIN_VALUE) {
+            System.out.println("The second largest element in the array is: " + secondLargest);
+        } else {
+            System.out.println("The array does not have a second largest element.");
+        }
+    }
+
+    // Function to find the second largest element in an array
+    static int findSecondLargest(int[] arr) {
+        int n = arr.length;
+
+        if (n < 2) {
+            return Integer.MIN_VALUE; // Handle the case when the array has less than two elements
+        }
+
+        int firstLargest = arr[0];
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > firstLargest) {
+                secondLargest = firstLargest;
+                firstLargest = arr[i];
+            } else if (arr[i] > secondLargest && arr[i] != firstLargest) {
+                secondLargest = arr[i];
+            }
+        }
+
+        return secondLargest;
+    }
+}
