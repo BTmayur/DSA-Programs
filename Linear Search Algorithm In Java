@@ -1,0 +1,24 @@
+public class LinearSearch {
+    public static void main(String[] args) {
+        int[] array = {5, 2, 9, 1, 5, 6};
+        int target = 9;
+
+        int index = linearSearch(array, target);
+
+        if (index != -1) {
+            System.out.println("Element " + target + " found at index: " + index);
+        } else {
+            System.out.println("Element " + target + " not found in the array.");
+        }
+    }
+
+    // Linear search function
+    static int linearSearch(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i; // Return the index if the target is found
+            }
+        }
+        return -1; // Return -1 if the target is not found
+    }
+}
