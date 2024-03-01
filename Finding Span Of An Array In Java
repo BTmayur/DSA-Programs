@@ -1,0 +1,32 @@
+public class ArraySpan {
+    public static void main(String[] args) {
+        int[] array = {6, 3, 8, 5, 2, 7, 4, 1};
+        
+        int span = findSpan(array);
+
+        System.out.println("The span of the array is: " + span);
+    }
+
+    // Function to find the span of an array
+    static int findSpan(int[] arr) {
+        if (arr.length == 0) {
+            return 0; // Handle the case when the array is empty
+        }
+
+        int max = arr[0];
+        int min = arr[0];
+
+        // Find the maximum and minimum values in the array
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        // Calculate the span
+        return max - min;
+    }
+}
