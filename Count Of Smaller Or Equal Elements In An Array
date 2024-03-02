@@ -1,0 +1,30 @@
+public class CountSmallerOrEqual {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 8, 10, 10, 12, 19};
+        int target = 5;
+
+        int count = countSmallerOrEqual(array, target);
+
+        System.out.println("Count of elements smaller than or equal to " + target + " is: " + count);
+    }
+
+    // Function to count the number of elements smaller than or equal to a target value in a sorted array
+    static int countSmallerOrEqual(int[] arr, int target) {
+        int n = arr.length;
+
+        int start = 0;
+        int end = n - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (arr[mid] <= target) {
+                start = mid + 1; // Move to the right half
+            } else {
+                end = mid - 1; // Move to the left half
+            }
+        }
+
+        return start; // Number of elements smaller than or equal to the target
+    }
+}
