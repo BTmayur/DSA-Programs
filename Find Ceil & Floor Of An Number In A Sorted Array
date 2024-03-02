@@ -1,0 +1,60 @@
+public class CeilFloorInSortedArray {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 8, 10, 10, 12, 19};
+        int target = 5;
+
+        int ceil = findCeil(array, target);
+        int floor = findFloor(array, target);
+
+        System.out.println("Ceil of " + target + " is: " + ceil);
+        System.out.println("Floor of " + target + " is: " + floor);
+    }
+
+    // Function to find the ceil of a number in a sorted array
+    static int findCeil(int[] arr, int target) {
+        int n = arr.length;
+
+        int start = 0;
+        int end = n - 1;
+        int ceil = -1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (arr[mid] == target) {
+                return arr[mid]; // Element is present in the array, so ceil is the same as the element
+            } else if (arr[mid] < target) {
+                start = mid + 1;
+            } else {
+                ceil = arr[mid];
+                end = mid - 1;
+            }
+        }
+
+        return ceil;
+    }
+
+    // Function to find the floor of a number in a sorted array
+    static int findFloor(int[] arr, int target) {
+        int n = arr.length;
+
+        int start = 0;
+        int end = n - 1;
+        int floor = -1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (arr[mid] == target) {
+                return arr[mid]; // Element is present in the array, so floor is the same as the element
+            } else if (arr[mid] < target) {
+                floor = arr[mid];
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+
+        return floor;
+    }
+}
