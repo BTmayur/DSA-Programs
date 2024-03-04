@@ -1,0 +1,22 @@
+public class CheckSortedArray {
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3, 4, 5};
+        int[] array2 = {7, 2, 5, 1, 8};
+
+        System.out.println("Is array1 sorted? " + isSorted(array1));
+        System.out.println("Is array2 sorted? " + isSorted(array2));
+    }
+
+    // Function to check if an array is sorted
+    static boolean isSorted(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i - 1] > arr[i]) {
+                return false; // If any element is greater than its next element, the array is not sorted
+            }
+        }
+        return true; // If the loop completes, the array is sorted
+    }
+}
+
