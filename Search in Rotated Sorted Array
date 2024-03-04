@@ -1,0 +1,52 @@
+public class FirstLastPositionInSortedArray {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 8, 8, 8, 10, 12};
+        int target = 8;
+
+        int[] result = searchRange(array, target);
+
+        System.out.println("First position of " + target + ": " + result[0]);
+        System.out.println("Last position of " + target + ": " + result[1]);
+    }
+
+    // Function to find the first and last position of an element in a sorted array
+    static int[] searchRange(int[] arr, int target) {
+        int[] result = {-1, -1};
+
+        int start = 0;
+        int end = arr.length - 1;
+
+        // Search for the first occurrence
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (arr[mid] == target) {
+                result[0] = mid;
+                end = mid - 1; // Continue searching in the left half for the first occurrence
+            } else if (arr[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+
+        start = 0;
+        end = arr.length - 1;
+
+        // Search for the last occurrence
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (arr[mid] == target) {
+                result[1] = mid;
+                start = mid + 1; // Continue searching in the right half for the last occurrence
+            } else if (arr[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+
+        return result;
+    }
+}
