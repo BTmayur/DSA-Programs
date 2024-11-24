@@ -36,26 +36,32 @@ class Main {
 // } Driver Code Ends
 
 
+// User function Template for Java
 class Solution {
-
-    // arr: input array
-    // Function to find the sum of contiguous subarray with maximum sum.
     int maxSubarraySum(int[] arr) {
-
         // Your code here
-        for(int i=1;i<arr.length;i++){
-            if(arr[i-1]+arr[i]>arr[i])
-            arr[i]=arr[i-1]+arr[i];
-            else
-            arr[i]=arr[i];
-        }
-        int max=arr[0];
-        for(int i=0;i<arr.length;i++){
-            if(max<arr[i]){
-                max=arr[i];
+        int n =  arr.length;
+        long maxsum = Integer.MIN_VALUE;
+        long currsum = 0;
+        
+        for(int i = 0 ;i < n; i++)
+        {
+            currsum += arr[i];
+            if(currsum < 0)
+            {
+                currsum = 0;
             }
+            maxsum = Math.max(maxsum,currsum);
         }
-        return max;
+        if(maxsum > 0)
+        {
+            return (int)maxsum;
+        }
+        else
+        {
+            Arrays.sort(arr);
+            return arr[n-1];
+        }
     }
 }
 
